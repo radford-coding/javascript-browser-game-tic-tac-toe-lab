@@ -1,9 +1,26 @@
+/* 
+- Make it your own - use something other than X and O to represent the players. A theme can go a long way here!
+- Add styling or other details to reinforce your theme and customize the game.
+*/
+
 body {
-    background-color: gainsboro;
+    background-color: black;
     /* Use a system font, if none are available use an available sans-sarif */
     font-family: system-ui, sans-serif;
     margin: 0;
+    color: rgb(247, 247, 247);
   }
+
+  section {
+    margin: 20px;
+  }
+
+  .carter-one-regular {
+    font-family: "Carter One", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
   
   .board {
     display: flex;
@@ -14,8 +31,10 @@ body {
   .sqr {
     width: 30%;
     aspect-ratio: 1/1;
-    border: 3px solid black;
+    border: 3px solid rgb(247, 247, 247);
     font-size: 64px;
     text-align: center;
+    margin: 1px;
+    border-radius: 10px;
   }
   
