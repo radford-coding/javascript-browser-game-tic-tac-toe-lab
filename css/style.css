@@ -8,11 +8,16 @@ body {
     /* Use a system font, if none are available use an available sans-sarif */
     font-family: system-ui, sans-serif;
     margin: 0;
-    color: rgb(247, 247, 247);
+    --txtColor: rgb(247, 247, 247);
+    color: var(--txtColor);
   }
 
   section {
-    margin: 20px;
+    margin: 20px auto;
+  }
+
+  button {
+    margin: 0 auto;
   }
 
   .carter-one-regular {
@@ -20,7 +25,6 @@ body {
     font-weight: 400;
     font-style: normal;
   }
-  
   
   .board {
     display: flex;
@@ -31,7 +35,7 @@ body {
   .sqr {
     width: 30%;
     aspect-ratio: 1/1;
-    border: 3px solid rgb(247, 247, 247);
+    border: 3px solid var(--txtColor);
     font-size: 64px;
     text-align: center;
     margin: 1px;
