@@ -1,5 +1,3 @@
-
-
 /*-------------------------------- Constants --------------------------------*/
 
 const winningCombos = [
@@ -12,7 +10,6 @@ const winningCombos = [
     [0, 4, 8],
     [2, 4, 6]
 ];
-
 
 /*---------------------------- Variables (state) ----------------------------*/
 
@@ -29,7 +26,6 @@ const resetBtnEl = document.querySelector('#reset');
 
 // initializing
 function init() {
-    console.log('initializing');
     // create an array of n=9 empty strings
     board = [...Array(9)].map(() => '');
     turn = 'X';
@@ -39,7 +35,6 @@ function init() {
 };
 
 function render() {
-    console.log('rendering');
     updateBoard();
     updateMessage();
 };
@@ -64,7 +59,7 @@ function updateMessage() {
     };
 };
 
-// event e
+// logic for handling a click event e
 function handleClick(e) {
     // console.log('ow! ' + e.target.id);
     const squareIndex = e.target.id;
@@ -84,7 +79,6 @@ function handleClick(e) {
 // put the current player's piece on the board
 function placePiece(index) {
     board[index] = turn;
-    console.log(board);
 };
 
 // check whether someone has won
@@ -92,11 +86,8 @@ function checkForWinner() {
     for (let winCombo = 0; winCombo < winningCombos.length; winCombo++) { // loop through winningCombos array
         let a = winningCombos[winCombo][0], b = winningCombos[winCombo][1], c = winningCombos[winCombo][2]; // shorthands. helpful for debugging
         if (board[a] !== '' && board[b] === board[a] && board[c] === board[a]) {
-            console.log(`combo ${a} ${b} ${c} is a winner!!!!`);
             winner = true;
             break; // no need to continue
-        } else {
-            console.log(`combo ${a} ${b} ${c}. play on`);
         };
     };
 };
@@ -112,7 +103,7 @@ function checkForTie() {
     };
 };
 
-// alternate
+// alternate turns. sharing is caring.
 function switchPlayerTurn() {
     if (winner) {
         return;
@@ -128,7 +119,6 @@ function switchPlayerTurn() {
 /*----------------------------- Event Listeners -----------------------------*/
 
 theBoard.addEventListener('click', (e) => {
-    // console.log(e.target.className + ", " + e.target.id);
     if (e.target.className === 'sqr') {
         handleClick(e);
     } else {
