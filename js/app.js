@@ -144,36 +144,29 @@ let playerNum = 1;
 
 function handleChoice(e) {
     if (playerNum === 1) {
-        player1 = e.target.innerText;
+        player1 = e.target.innerText; // use this choice for player 1
         e.target.style.color = 'black'; // sort of hide it
-        playerNum += 1;
-        choose();
+        playerNum = 2; // next player
+        choose(); // reload prompt
     } else if (playerNum === 2) {
-        player2 = e.target.innerText;
-        choosing.style.display = 'none';
-        theBoard.style.display = 'flex';
-        playerNum = 1;
+        player2 = e.target.innerText; // use this choice for player 2
+        choosing.style.display = 'none'; // hide the icon choices
+        theBoard.style.display = 'flex'; // show the game board
+        playerNum = 1; // prepare for when the reset button is pressed
         choiceEls.forEach(c => c.style.color = 'white'); // sort of unhide it
-        init();
+        init(); // begin the usual game
     };
 };
 
-
 function choose() {
-    messageEl.innerText = '';
-    theBoard.style.display = 'none';
-    choosing.style.display = 'flex';
+    messageEl.innerText = ''; // hide message
+    theBoard.style.display = 'none'; // hide board
+    choosing.style.display = 'flex'; // show icon choices
     choiceMessage.innerText = `Please select an icon for player ${playerNum}`;
 };
 
+// initialize
 choose();
-
 
 // event listeners for the initial two icon choices
 choiceEls.forEach(c => c.addEventListener('click', handleChoice));
-
-
-// prompt user to make a choice for player1, player2
-// hide choices and show the game board
-// use those choices for the game
-// reset() returns to piece selection
